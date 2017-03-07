@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewShop.Model.Models
 {
-    [Table("PostCategories")]
+    [Table("ProductCategories")]
     public class ProductCategory : Auditable
     {
         [Key]
