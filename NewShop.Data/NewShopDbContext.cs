@@ -10,7 +10,7 @@ namespace NewShop.Data
 {
     public class NewShopDbContext: DbContext
     {
-        public NewShopDbContext() : base("NewShopConnection")
+        public NewShopDbContext() : base("NewsShopConnection")
         {
             //Khi load ban cha thi khong tu dong include ban con
             this.Configuration.LazyLoadingEnabled = false;
