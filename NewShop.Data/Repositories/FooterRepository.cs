@@ -8,9 +8,15 @@ using System.Threading.Tasks;
 
 namespace NewShop.Data.Repositories
 {
-    public class FooterRepository : IRepository<Footer>
+    public interface IFooterRepository : IRepository<Footer>
     {
-        public FooterRepository(IDbFactory dbFactory): base(dbFactory)
+    }
+
+    public class FooterRepository : RepositoryBase<Footer>, IFooterRepository
+    {
+        public FooterRepository(IDbFactory dbFactory) : base(dbFactory)
         {
         }
+    }
+
 }
