@@ -1,8 +1,7 @@
-﻿using NewShop.Model.Abstract;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Linq;
-
+using NewShop.Model.Abstract;
 
 namespace NewShop.Model.Models
 {
@@ -26,8 +25,10 @@ namespace NewShop.Model.Models
 
         [MaxLength(256)]
         public string Image { set; get; }
+
         [Column(TypeName = "xml")]
         public string MoreImages { set; get; }
+
         public decimal Price { set; get; }
 
         public decimal? PromotionPrice { set; get; }

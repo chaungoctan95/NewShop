@@ -1,8 +1,8 @@
-﻿using NewShop.Model.Abstract;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using NewShop.Model.Abstract;
 
 namespace NewShop.Model.Models
 {

@@ -1,12 +1,8 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
 using NewShop.Data.Infrastructure;
 using NewShop.Data.Repositories;
 using NewShop.Model.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Linq;
 
 namespace NewShop.Service
@@ -14,21 +10,29 @@ namespace NewShop.Service
     public interface IPostService
     {
         void Add(Post post);
-        void Update(Post post);
-        void Delete(int id);
-        IEnumerable<Post> GetAll();
-        IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow);
-        //kích vào danh mục sẽ hiển thị ra nó
-        IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow);
-        Post GetById(int id);
-        IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow);
-        void SaveChanges();
 
+        void Update(Post post);
+
+        void Delete(int id);
+
+        IEnumerable<Post> GetAll();
+
+        IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow);
+
+        IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow);
+
+        Post GetById(int id);
+
+        IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow);
+
+        void SaveChanges();
     }
+
     public class PostService : IPostService
     {
         IPostRepository _postRepository;
         IUnitOfWork _unitOfWork;
+
         public PostService(IPostRepository postRepository, IUnitOfWork unitOfWork)
         {
             this._postRepository = postRepository;
@@ -47,7 +51,6 @@ namespace NewShop.Service
 
         public IEnumerable<Post> GetAll()
         {
-            //select cả post và category tương ứng
             return _postRepository.GetAll(new string[] { "PostCategory" });
         }
 
@@ -56,10 +59,11 @@ namespace NewShop.Service
             return _postRepository.GetMultiPaging(x => x.Status && x.CategoryID == categoryId, out totalRow, page, pageSize, new string[] { "PostCategory" });
         }
 
-        public IEnumerable<Post> GetAllByTagPaging( string tag,int page, int pageSize, out int totalRow)
+        public IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow)
         {
-            //TODO: chọn tất cả các post bằng tag
-            return _postRepository.GetAllPageTag(tag , page, pageSize, out totalRow);
+            //TODO: Select all post by tag
+            return _postRepository.GetAllByTag(tag, page, pageSize, out totalRow);
+
         }
 
         public IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow)

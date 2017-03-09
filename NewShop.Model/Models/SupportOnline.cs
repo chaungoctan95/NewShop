@@ -32,7 +32,6 @@ namespace NewShop.Model.Models
         [MaxLength(50)]
         public string Facebook { set; get; }
 
-        
         public bool Status { set; get; }
 
         public int? DisplayOrder { set; get; }

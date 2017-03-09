@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewShop.Web.Infrastructure.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,7 +8,7 @@ using System.Web.Http;
 
 namespace NewShop.Web.Api
 {
-    public class PostCategoryController : ApiController
+    public class PostCategoryController : ApiControllerBase
     {
         // GET api/<controller>
         public IEnumerable<string> Get()

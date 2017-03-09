@@ -1,19 +1,15 @@
 ﻿using NewShop.Data.Infrastructure;
 using NewShop.Model.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewShop.Data.Repositories
-{
-    public interface IProductRepository
+{ 
+    public interface IProductRepository : IRepository<Product>
     {
     }
-    public class ProductRepository : RepositoryBase<Product>
+
+    public class ProductRepository : RepositoryBase<Product>, IProductRepository
     {
-        public ProductRepository(IDbFactory dbFactory): base(dbFactory)
+        public ProductRepository(IDbFactory dbFactory) : base(dbFactory)
         {
         }
     }
