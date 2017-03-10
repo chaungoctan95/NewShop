@@ -20,7 +20,7 @@ namespace NewShop.Model.Abstract
         public string UpdatedBy { set; get; }
 
         [MaxLength(256)]
-        public string MetaKeywork { set; get; }
+        public string MetaKeyword { set; get; }
 
         [MaxLength(256)]
         public string MetaDescription { set; get; }
