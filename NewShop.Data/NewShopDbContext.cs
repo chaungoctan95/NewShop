@@ -1,20 +1,19 @@
-﻿using NewShop.Model.Models;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NewShop.Model.Models;
 
 namespace NewShop.Data
 {
-    public class NewShopDbContext: DbContext
+    public class NewShopDbContext : IdentityDbContext<ApplicationUser>
     {
         public NewShopDbContext() : base("NewsShopConnection")
         {
-            //Khi load ban cha thi khong tu dong include ban con
             this.Configuration.LazyLoadingEnabled = false;
-
         }
 
         public DbSet<Footer> Footers { set; get; }
@@ -37,15 +36,17 @@ namespace NewShop.Data
         public DbSet<Tag> Tags { set; get; }
 
         public DbSet<VisitorStatistic> VisitorStatistics { set; get; }
-        public DbSet<Error> Error { set; get; }
+        public DbSet<Error> Errors { set; get; }
 
-        //phuong thuc ghi de DBcontex
-        //Chay khi khoi tao entity framework
-        protected override void OnModelCreating(DbModelBuilder builder)
+        public static NewShopDbContext Create()
         {
-            
+            return new NewShopDbContext();
         }
 
-
+        protected override void OnModelCreating(DbModelBuilder builder)
+        {
+            builder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId });
+            builder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
+        }
     }
 }
