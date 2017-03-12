@@ -1,0 +1,3 @@
+﻿(function () {
+    angular.module('newshop.common', ['ui.router'])
+})();
