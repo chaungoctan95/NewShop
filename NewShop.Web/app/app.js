@@ -1,7 +1,11 @@
 ﻿/// <reference path="/Assets/admin/libs/angular/angular.js" />
 
 (function () {
-    angular.module('newshop', ['newshop.products', 'newshop.common']).config(config);
+    angular.module('newshop',
+        ['newshop.products',
+         'newshop.product_categories',
+         'newshop.common'
+        ]).config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 

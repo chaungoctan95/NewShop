@@ -1,19 +1,16 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NewShop.Model.Models;
+using System.Data.Entity;
 
 namespace NewShop.Data
 {
     public class NewShopDbContext : IdentityDbContext<ApplicationUser>
     {
-        public NewShopDbContext() : base("NewsShopConnection")
+        public NewShopDbContext() : base("NewShop")
         {
+            //Khi load ban cha thi khong tu dong include ban con
             this.Configuration.LazyLoadingEnabled = false;
+
         }
 
         public DbSet<Footer> Footers { set; get; }
@@ -38,6 +35,8 @@ namespace NewShop.Data
         public DbSet<VisitorStatistic> VisitorStatistics { set; get; }
         public DbSet<Error> Errors { set; get; }
 
+        //phuong thuc ghi de DBcontex
+        //Chay khi khoi tao entity framework
         public static NewShopDbContext Create()
         {
             return new NewShopDbContext();
@@ -48,5 +47,7 @@ namespace NewShop.Data
             builder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId });
             builder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
+
+
     }
 }

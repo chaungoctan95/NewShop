@@ -64,25 +64,17 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201703090911377_InitialDB.cs" />
-    <Compile Include="Migrations\201703090911377_InitialDB.Designer.cs">
-      <DependentUpon>201703090911377_InitialDB.cs</DependentUpon>
+    <Compile Include="Migrations\201703160234547_InitialDB.cs" />
+    <Compile Include="Migrations\201703160234547_InitialDB.Designer.cs">
+      <DependentUpon>201703160234547_InitialDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703090918486_AddErrorTable.cs" />
-    <Compile Include="Migrations\201703090918486_AddErrorTable.Designer.cs">
-      <DependentUpon>201703090918486_AddErrorTable.cs</DependentUpon>
+    <Compile Include="Migrations\201703160246162_AddErrorTable.cs" />
+    <Compile Include="Migrations\201703160246162_AddErrorTable.Designer.cs">
+      <DependentUpon>201703160246162_AddErrorTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703101606446_Initial.cs" />
-    <Compile Include="Migrations\201703101606446_Initial.Designer.cs">
-      <DependentUpon>201703101606446_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703101608196_AddErrorTable1.cs" />
-    <Compile Include="Migrations\201703101608196_AddErrorTable1.Designer.cs">
-      <DependentUpon>201703101608196_AddErrorTable1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703101626128_Intergrate-AspnetIdentity.cs" />
-    <Compile Include="Migrations\201703101626128_Intergrate-AspnetIdentity.Designer.cs">
-      <DependentUpon>201703101626128_Intergrate-AspnetIdentity.cs</DependentUpon>
+    <Compile Include="Migrations\201703160330064_AspnetIdentity.cs" />
+    <Compile Include="Migrations\201703160330064_AspnetIdentity.Designer.cs">
+      <DependentUpon>201703160330064_AspnetIdentity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NewShopDbContext.cs" />
@@ -98,6 +90,7 @@
     <Compile Include="Repositories\PostRepository.cs" />
     <Compile Include="Repositories\PostTagRepository.cs" />
     <Compile Include="Repositories\ProductCategoryRepository.cs" />
+    <Compile Include="Repositories\ProductCategoryRespository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\ProductTagRepository.cs" />
     <Compile Include="Repositories\SlideRepository.cs" />
@@ -121,20 +114,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703090911377_InitialDB.resx">
-      <DependentUpon>201703090911377_InitialDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703160234547_InitialDB.resx">
+      <DependentUpon>201703160234547_InitialDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703090918486_AddErrorTable.resx">
-      <DependentUpon>201703090918486_AddErrorTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703160246162_AddErrorTable.resx">
+      <DependentUpon>201703160246162_AddErrorTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703101606446_Initial.resx">
-      <DependentUpon>201703101606446_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703101608196_AddErrorTable1.resx">
-      <DependentUpon>201703101608196_AddErrorTable1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703101626128_Intergrate-AspnetIdentity.resx">
-      <DependentUpon>201703101626128_Intergrate-AspnetIdentity.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703160330064_AspnetIdentity.resx">
+      <DependentUpon>201703160330064_AspnetIdentity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

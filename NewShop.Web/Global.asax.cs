@@ -17,7 +17,6 @@ namespace NewShop.Web
             AreaRegistration.RegisterAllAreas();
             AutoMapperConfiguration.Configure();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

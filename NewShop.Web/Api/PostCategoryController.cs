@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using AutoMapper;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using NewShop.Model.Models;
 using NewShop.Service;
 using NewShop.Web.Infrastructure.Core;
-using AutoMapper;
 using NewShop.Web.Models;
 using NewShop.Web.Infrastructure.Extensions;
 
