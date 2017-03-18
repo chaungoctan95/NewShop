@@ -22,17 +22,19 @@
       </div>
     </div>
     <div class="box-body">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="input-group">
-                    <input type="text" class="form-control" ng-model="keyword" placeholder="Từ khóa">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" ng-click="search()">Tìm kiếm</button>
-                    </span>
-                </div><!-- /input-group -->
-            </div>
+      <di class="row">
+        <div class="col-md-6">
+          <div class="input-group">
+            <input type="text" class="form-control" ng-model="keyword" placeholder="Từ khóa">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" ng-click="search()">Tìm kiếm</button>
+            </span>
+          </div><!-- /input-group -->
         </div>
-
+        <div class="col-md-6">
+          <button class="btn btn-success" ui-sref="add_product_category">Thêm mới</button>
+        </div>
+      </di>
       <div class="row">
         <div class="col-md-12">
           <table class="table table-bordered">
@@ -56,17 +58,15 @@
                 </span>
               </td>
               <td>
-                <button class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></button>
-                <button class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-sm btn-primary" ui-sref="edit_product_category({id:item.ID})"><i class="fa fa-pencil"></i></button>
+                <button class="btn  btn-sm btn-danger"ng-click="deleteProductCategory(item.ID)"><i class="fa fa-trash"></i></button>
               </td>
             </tr>
-              <tfoot>
-                  <tr>
-                      <td colspan="5"><span class="pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span></td>
-
-                   </tr>
-              </tfoot>
-
+            <tfoot>
+              <tr>
+                <td colspan="5"><span class="pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span></td>
+              </tr>
+            </tfoot>
           </table>
         </div>
       </div>

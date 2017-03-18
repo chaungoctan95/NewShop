@@ -1,38 +1,50 @@
 ﻿(function (app) {
     app.controller('productCategoryListController', productCategoryListController);
 
-    productCategoryListController.$inject = ['$scope', 'apiService', 'notificationService'];
+    productCategoryListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox'];
 
-    function productCategoryListController($scope, apiService, notificationService) {
+    function productCategoryListController($scope, apiService, notificationService, $ngBootbox) {
         $scope.productCategories = [];
         $scope.page = 0;
         $scope.pagesCount = 0;
         $scope.getProductCagories = getProductCagories;
         $scope.keyword = '';
+
         $scope.search = search;
+
+        $scope.deleteProductCategory = deleteProductCategory;
+
+        function deleteProductCategory(id) {
+            $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
+                var config = {
+                    params: {
+                        id: id
+                    }
+                }
+                apiService.del('/api/productcategory/delete', config, function () {
+                    notificationService.displaySuccess('Xóa thành công');
+                    search();
+                }, function () {
+                    notificationService.displayError('Xóa không thành công');
+                })
+            });
+        }
 
         function search() {
             getProductCagories();
         }
-
         function getProductCagories(page) {
             page = page || 0;
             var config = {
                 params: {
-                    keyword : $scope.keyword,
+                    keyword: $scope.keyword,
                     page: page,
-                    pageSize: 2
+                    pageSize: 20
                 }
             }
             apiService.get('/api/productcategory/getall', config, function (result) {
-                if (result.data.TotalCount == 0)
-                {
-                    notificationService.displayWarning('Không có bản ghi nào thỏa được tìm thấy.');
-                }
-                else
-                {
-                    notificationService.displaySuccess('Đã tìm thấy ' + result.data.TotalCount + ' bản ghi.');
-
+                if (result.data.TotalCount == 0) {
+                    notificationService.displayWarning('Không có bản ghi nào được tìm thấy.');
                 }
                 $scope.productCategories = result.data.Items;
                 $scope.page = result.data.Page;
