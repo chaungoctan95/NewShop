@@ -76,6 +76,10 @@
     <Compile Include="Migrations\201703160330064_AspnetIdentity.Designer.cs">
       <DependentUpon>201703160330064_AspnetIdentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703181600365_AddTagField.cs" />
+    <Compile Include="Migrations\201703181600365_AddTagField.Designer.cs">
+      <DependentUpon>201703181600365_AddTagField.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NewShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -122,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703160330064_AspnetIdentity.resx">
       <DependentUpon>201703160330064_AspnetIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703181600365_AddTagField.resx">
+      <DependentUpon>201703181600365_AddTagField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
