@@ -1,5 +1,6 @@
 ﻿namespace NewShop.Data.Migrations
 {
+    using Common;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Model.Models;
@@ -61,6 +62,13 @@
                 context.SaveChanges();
             }
 
+        }
+        private void CreateFooter(NewShopDbContext context)
+        {
+            if (context.Footers.Count(x => x.ID == CommonConstants.DefaultFooterId) == 0)
+            {
+                string content = "";
+            }
         }
     }
 }
