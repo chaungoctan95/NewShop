@@ -12,6 +12,7 @@ using NewShop.Web.Infrastructure.Extensions;
 namespace NewShop.Web.Api
 {
     [RoutePrefix("api/postcategory")]
+    [Authorize]
     public class PostCategoryController : ApiControllerBase
     {
         IPostCategoryService _postCategoryService;
