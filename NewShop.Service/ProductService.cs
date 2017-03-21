@@ -3,6 +3,7 @@ using NewShop.Common;
 using NewShop.Data.Infrastructure;
 using NewShop.Data.Repositories;
 using NewShop.Model.Models;
+using System.Linq;
 
 namespace NewShop.Service
 {
@@ -17,6 +18,10 @@ namespace NewShop.Service
         IEnumerable<Product> GetAll();
 
         IEnumerable<Product> GetAll(string keyword);
+
+        IEnumerable<Product> GetLastest(int top);
+
+        IEnumerable<Product> GetHotProduct(int top);
 
         Product GetById(int id);
 
@@ -58,7 +63,7 @@ namespace NewShop.Service
                         tag.Type = CommonConstants.ProductTag;
                         _tagRepository.Add(tag);
                     }
-                    
+
                     ProductTag productTag = new ProductTag();
                     productTag.ProductID = Product.ID;
                     productTag.TagID = tagId;
@@ -121,6 +126,17 @@ namespace NewShop.Service
                 }
 
             }
+        }
+
+        public IEnumerable<Product> GetLastest(int top)
+        {
+            return _productRepository.GetMulti(x => x.Status).OrderByDescending(x => x.CreatedDate).Take(top);
+        }
+
+        public IEnumerable<Product> GetHotProduct(int top)
+        {
+            return _productRepository.GetMulti(x => x.Status && x.HotFlag == true).OrderByDescending(x => x.CreatedDate).Take(top);
+
         }
     }
 }
