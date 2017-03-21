@@ -35,7 +35,7 @@ namespace NewShop.Data
         public DbSet<VisitorStatistic> VisitorStatistics { set; get; }
         public DbSet<Error> Errors { set; get; }
         public DbSet<ContactDetail> ContactDetails { set; get; }
-
+        public DbSet<Feedback> Feedbacks { set; get; }
         //phuong thuc ghi de DBcontex
         //Chay khi khoi tao entity framework
         public static NewShopDbContext Create()

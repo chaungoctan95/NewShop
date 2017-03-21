@@ -8,7 +8,7 @@
     initMap: function () {
         var uluru = { lat: parseFloat($('#hidLat').val()), lng: parseFloat($('#hidLng').val()) };
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 30,
+            zoom: 15,
             center: uluru
         });
 
