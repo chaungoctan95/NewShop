@@ -2,6 +2,8 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Linq;
 using NewShop.Model.Abstract;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace NewShop.Model.Models
 {
@@ -32,6 +34,7 @@ namespace NewShop.Model.Models
         public decimal Price { set; get; }
 
         public decimal? PromotionPrice { set; get; }
+        
         public int? Warranty { set; get; }
 
         [MaxLength(500)]
@@ -45,7 +48,11 @@ namespace NewShop.Model.Models
 
         public string Tags { set; get; }
 
+        public int Quantity { set; get; }
+
         [ForeignKey("CategoryID")]
         public virtual ProductCategory ProductCategory { set; get; }
+
+        public virtual IEnumerable<ProductTag> ProductTags { set; get; }    
     }
 }

@@ -208,6 +208,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -219,6 +220,7 @@
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Models\FooterViewModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\PageViewModel.cs" />
     <Compile Include="Models\PostCategoryViewModel.cs" />
     <Compile Include="Models\PostTagViewModel.cs" />
     <Compile Include="Models\PostViewModel.cs" />
@@ -4740,6 +4742,7 @@
     <Content Include="Assets\admin\libs\toastr\toastr.min.css" />
     <Content Include="Assets\admin\libs\toastr\toastr.min.js" />
     <Content Include="Assets\client\css\bootstrap.css" />
+    <Content Include="Assets\client\css\custom.css" />
     <Content Include="Assets\client\css\etalage.css" />
     <Content Include="Assets\client\css\form.css" />
     <Content Include="Assets\client\css\style.css" />
@@ -4812,6 +4815,8 @@
     <Content Include="UploadedFiles\files\2017-03-18_101641.png" />
     <Content Include="UploadedFiles\images\ba - Copy - Copy.jpg" />
     <Content Include="UploadedFiles\images\bo.jpg" />
+    <Content Include="UploadedFiles\images\bott.jpg" />
+    <Content Include="UploadedFiles\images\bottle - Copy.jpg" />
     <Content Include="UploadedFiles\images\ch.jpg" />
     <Content Include="UploadedFiles\images\s4.jpg" />
     <Content Include="UploadedFiles\_thumbs\Images\LOGOTEDU.jpg" />
@@ -5186,6 +5191,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Product\Search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\Detail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\ListByTag.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Page\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

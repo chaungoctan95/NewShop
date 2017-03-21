@@ -84,6 +84,14 @@
     <Compile Include="Migrations\201703210007158_AddContentToSlide.Designer.cs">
       <DependentUpon>201703210007158_AddContentToSlide.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703210946346_AddMoreQuantity.cs" />
+    <Compile Include="Migrations\201703210946346_AddMoreQuantity.Designer.cs">
+      <DependentUpon>201703210946346_AddMoreQuantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703211129375_addforiekey.cs" />
+    <Compile Include="Migrations\201703211129375_addforiekey.Designer.cs">
+      <DependentUpon>201703211129375_addforiekey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NewShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,6 +144,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703210007158_AddContentToSlide.resx">
       <DependentUpon>201703210007158_AddContentToSlide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703210946346_AddMoreQuantity.resx">
+      <DependentUpon>201703210946346_AddMoreQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703211129375_addforiekey.resx">
+      <DependentUpon>201703211129375_addforiekey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
