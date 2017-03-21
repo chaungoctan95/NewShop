@@ -23,7 +23,8 @@
         {
             CreateProductCategorySample(context);
             CreateSlide(context);
-            CreatePage(context); 
+            CreatePage(context);
+            CreateContactDetail(context);
             //  This method will be called after migrating to the latest version.
 
 
@@ -131,6 +132,43 @@
 
                     };
                     context.Pages.Add(page);
+                    context.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (var eve in ex.EntityValidationErrors)
+                    {
+                        Trace.WriteLine($"Entity of type \"{eve.Entry.Entity.GetType().Name}\" in state \"{eve.Entry.State}\" has the following validation error.");
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Trace.WriteLine($"- Property: \"{ve.PropertyName}\", Error: \"{ve.ErrorMessage}\"");
+                        }
+                    }
+                }
+
+            }
+        }
+
+        private void CreateContactDetail(NewShopDbContext context)
+        {
+            if (context.ContactDetails.Count() == 0)
+            {
+                try
+                {
+                    var contactDetail = new NewShop.Model.Models.ContactDetail()
+                    {
+                        Name = "Shop thời trang NEW",
+                        Address = "41 Lê Duẩn, Đà Nẵng",
+                        Email = "newshop@gmail.com",
+                        Lat = 16.0712053,
+                        Lng = 108.2197718,
+                        Phone = "0969405980",
+                        Website = "http://facebook.com/chaungoctan95",
+                        Other = "",
+                        Status = true
+
+                    };
+                    context.ContactDetails.Add(contactDetail);
                     context.SaveChanges();
                 }
                 catch (DbEntityValidationException ex)
