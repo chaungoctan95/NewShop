@@ -5,6 +5,7 @@ using System.Web;
 
 namespace NewShop.Web.Models
 {
+    [Serializable]
     public class ProductViewModel
     {
         public int ID { set; get; }

@@ -24,6 +24,7 @@ namespace NewShop.Web.Controllers
             _commonService = commonService;
             _productService = productService;
         }
+
         [OutputCache(Duration = 60, Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Index()
         {
@@ -41,7 +42,6 @@ namespace NewShop.Web.Controllers
             return View(homeViewModel);
         }
 
-       
 
         [ChildActionOnly]
         [OutputCache(Duration = 3600)]
