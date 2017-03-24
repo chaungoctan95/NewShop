@@ -9,7 +9,6 @@ using NewShop.Web.App_Start;
 namespace NewShop.Web.Api
 {
     [RoutePrefix("api/account")]
-  
     public class AccountController : ApiController
     {
         private ApplicationSignInManager _signInManager;

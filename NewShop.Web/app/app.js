@@ -3,7 +3,10 @@
 (function () {
     angular.module('newshop',
         ['newshop.products',
+         'newshop.application_groups',
          'newshop.product_categories',
+         'newshop.application_roles',
+         'newshop.application_users',
          'newshop.common'])
         .config(config)
         .config(configAuthentication);
@@ -31,7 +34,6 @@
     }
 
     function configAuthentication($httpProvider) {
-        //casi quan tri tuong tac client interceptor
         $httpProvider.interceptors.push(function ($q, $location) {
             return {
                 request: function (config) {

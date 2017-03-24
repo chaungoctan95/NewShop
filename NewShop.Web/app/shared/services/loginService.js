@@ -1,7 +1,7 @@
 ﻿(function (app) {
     'use strict';
-    app.service('loginService',['$http', '$q', 'authenticationService', 'authData',
-    function ($http, $q, authenticationService, authData, loginService) {
+    app.service('loginService', ['$http', '$q', 'authenticationService', 'authData',
+    function ($http, $q, authenticationService, authData) {
         var userInfo;
         var deferred;
 
