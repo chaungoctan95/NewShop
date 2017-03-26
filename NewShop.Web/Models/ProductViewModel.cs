@@ -54,6 +54,8 @@ namespace NewShop.Web.Models
 
         public int  Quantity { set; get; }
 
+        public decimal OriginalPrice { set; get; }
+
         public virtual ProductCategoryViewModel ProductCategory { set; get; }
     }
 }

@@ -11,7 +11,7 @@ namespace NewShop.Service
 {
     public interface IOrderService
     {
-        bool Create(Order order,List<OrderDetail> orderDetails);
+        bool Create(Order order, List<OrderDetail> orderDetails);
     }
     public class OrderService : IOrderService
     {
@@ -19,13 +19,13 @@ namespace NewShop.Service
         IOrderDetailRepository _orderDetailRepository;
         IUnitOfWork _unitOfWork;
 
-        public OrderService(IOrderRepository orderRepository, IOrderDetailRepository orderDetailRepository,IUnitOfWork unitOfWork)
+        public OrderService(IOrderRepository orderRepository, IOrderDetailRepository orderDetailRepository, IUnitOfWork unitOfWork)
         {
             this._orderRepository = orderRepository;
             this._orderDetailRepository = orderDetailRepository;
             this._unitOfWork = unitOfWork;
         }
-        public bool Create(Order order,List<OrderDetail> orderDetails)
+        public bool Create(Order order, List<OrderDetail> orderDetails)
         {
             try
             {
@@ -37,13 +37,15 @@ namespace NewShop.Service
                     orderDetail.OrderID = order.ID;
                     _orderDetailRepository.Add(orderDetail);
                 }
-                _unitOfWork.Commit();
                 return true;
+                //xoa commit 
             }
             catch (Exception ex)
             {
                 throw;
             }
         }
+
+
     }
 }

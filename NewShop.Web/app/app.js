@@ -7,7 +7,8 @@
          'newshop.product_categories',
          'newshop.application_roles',
          'newshop.application_users',
-         'newshop.common'])
+         'newshop.common',
+         'newshop.statistics'])
         .config(config)
         .config(configAuthentication);
 
