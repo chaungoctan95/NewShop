@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
@@ -22,10 +23,11 @@ namespace NewShop.Web.App_Start
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
             app.CreatePerOwinContext(NewShopDbContext.Create);
+
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
-
             app.CreatePerOwinContext<UserManager<ApplicationUser>>(CreateManager);
+
             app.UseOAuthAuthorizationServer(new OAuthAuthorizationServerOptions
             {
                 TokenEndpointPath = new PathString("/oauth/token"),
@@ -35,7 +37,6 @@ namespace NewShop.Web.App_Start
 
             });
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
-
 
             // Configure the sign in cookie
             app.UseCookieAuthentication(new CookieAuthenticationOptions
@@ -48,7 +49,7 @@ namespace NewShop.Web.App_Start
                     // This is a security feature which is used when you change a password or add an external login to your account.  
                     OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
                         validateInterval: TimeSpan.FromMinutes(30),
-                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
+                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager, DefaultAuthenticationTypes.ApplicationCookie))
                 }
             });
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
@@ -62,21 +63,19 @@ namespace NewShop.Web.App_Start
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1906944232883110",
+               appSecret: "c8f10444c424497b04b1236f7281e3e5");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "494369962256-m3ec67gq2u54slvc3av2luobqkof6h2c.apps.googleusercontent.com",
+                ClientSecret = "3MMNh6ZRn1fxx7AT-NAWHs7M"
+            });
         }
         public class AuthorizationServerProvider : OAuthAuthorizationServerProvider
         {
-
             public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
-
             {
                 context.Validated();
             }
