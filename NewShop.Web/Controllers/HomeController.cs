@@ -8,6 +8,10 @@ using NewShop.Common;
 using NewShop.Model.Models;
 using NewShop.Service;
 using NewShop.Web.Models;
+using System.Xml.Linq;
+using System.Globalization;
+using Boilerplate.Web.Mvc;
+using System.Text;
 
 namespace NewShop.Web.Controllers
 {
@@ -29,6 +33,8 @@ namespace NewShop.Web.Controllers
         [OutputCache(Duration = 60, Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Index()
         {
+
+            
             var slideModel = _commonService.GetSlides();
             var slideView = Mapper.Map<IEnumerable<Slide>, IEnumerable<SlideViewModel>>(slideModel);
             var homeViewModel = new HomeViewModel();
@@ -68,6 +74,8 @@ namespace NewShop.Web.Controllers
         [ChildActionOnly]
         public ActionResult Header()
         {
+            ViewBag.SoNguoiTruyCap = HttpContext.Application["SoNguoiTruyCap"].ToString(); //Lấy số lượng người truy cập từ application đã được tạo
+            ViewBag.SoLuongNguoiOnLine = HttpContext.Application["SoNguoiDangOnline"].ToString();
             return PartialView();
         }
 
@@ -79,5 +87,12 @@ namespace NewShop.Web.Controllers
             var listProductCategoryViewModel = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(model);
             return PartialView(listProductCategoryViewModel);
         }
+
+
+        
+
+
+
+
     }
 }

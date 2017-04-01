@@ -7,10 +7,11 @@ using System.Web.Http;
 using NewShop.Service;
 using NewShop.Web.Infrastructure.Core;
 
+
 namespace NewShop.Web.Api
 {
     [RoutePrefix("api/home")]
-    [Authorize]
+    [Authorize(Roles = "Admin,Boss")]
     public class HomeController : ApiControllerBase
     {
         IErrorService _errorService;
@@ -25,5 +26,8 @@ namespace NewShop.Web.Api
         {
             return "Hello, NEW Member. ";
         }
-    }
+
+
+        
+}
 }

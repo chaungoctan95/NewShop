@@ -55,6 +55,7 @@ namespace NewShop.Web.Controllers
         {
 
         }
+        
         // GET: Account
         public ActionResult Login(string returnUrl)
         {

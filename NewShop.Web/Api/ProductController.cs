@@ -31,6 +31,7 @@ namespace NewShop.Web.Api
 
         [Route("getallparents")]
         [HttpGet]
+        [Authorize(Roles = "ngoctan")]
         public HttpResponseMessage GetAll(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
